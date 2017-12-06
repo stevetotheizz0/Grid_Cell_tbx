@@ -1,0 +1,89 @@
+Data:
+
+Census Blocks
+Boundary
+Hydrogragphy (Cut features)
+Roads (Polygon or Line, Sewer (Line), Manhole
+
+1) Ensure Data frame units are Feet (Project any non-feet units)
+
+Project Census blocks and start new data frame with those units.
+
+2)ERASE  Hydrography from Census Blocks
+
+3) Calculate Area of Census Blocks in Acres
+
+4) Fishnet (Set Area, Possibly pick by sample size)
+-Polygon
+-Set Area
+-Extent is boundary Area
+
+5)  Select Fishnet by Location and Export those that overlay
+Boundary Area.
+
+6) Calculated Cut Blocks in Acres
+
+7) Allocate Pop into area of Cut Blocks
+
+8) Sum Pop into Fishnet Squares w/ Spatial Join
+
+-Convert into Points (Feature to Point)
+
+-Ensure Join does not pick up bordering polygons.
+
+-Delete Unnecessary Fields
+
+**********************************************
+
+Roads
+
+239,363,524
+
+1)  Calculate Full Area (Save for QA at End)
+
+2)  Cut to Fishnet and Recalculate Area
+
+Sum and Check Area
+
+3) Convert to Point within Poly for Spatial Join
+
+-Remove Area = 0 polygons first.
+
+
+
+4) Spatial Join with Fishnet and Sum Area
+
+-Delete Additional Fields
+
+5)Check Total Area
+
+
+**********************************************
+
+
+Manhole Covers
+
+1) Merge Multiple Files (Remove all Fields)
+
+-If merge fails then spatial join files separately
+and add together.
+
+2) Sum into Fishnet Census Grid
+
+**********************************************
+
+
+Sewer Mains
+
+1) Merge SW ans SS main files
+
+2) Calculate Linear Ft (Save total)
+
+3) Convert to Point (Sum)
+
+4) Spatial Join Points to Fisnet Grid
+
+5) Check total with pre-join.
+-Delete unncecessary fields.
+
+6)
